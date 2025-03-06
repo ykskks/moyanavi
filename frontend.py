@@ -29,6 +29,9 @@ def display_user_input() -> str | None:
     prompt = st.chat_input(
         "何にもやもやしていますか？",
     )
+    if prompt is not None:
+        st.subheader("💭あなたのもやもや")
+        st.write(prompt)
     return prompt
 
 
