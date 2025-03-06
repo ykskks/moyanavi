@@ -13,6 +13,10 @@
 - **AI モデル**: Amazon Bedrock
 - **検索エンジン**: Tavily API
 
+# アーキテクチャ図
+
+![](images/architecture_diagram.png)
+
 ## ファイル構成
 
 ```
