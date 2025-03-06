@@ -6,16 +6,18 @@
 
 ※みのるんさんの[「わが家の AI 技術顧問」](https://aws.amazon.com/jp/builders-flash/202503/create-ai-advisor-with-bedrock/)を参考とさせていただきました。
 
-## 使用技術
+## 画面
+
+![](images/screen.png)
+
+## アーキテクチャ図
+
+![](images/architecture_diagram.png)
 
 - **フロントエンド**: Streamlit
 - **バックエンド**: AWS Lambda
 - **AI モデル**: Amazon Bedrock
 - **検索エンジン**: Tavily API
-
-# アーキテクチャ図
-
-![](images/architecture_diagram.png)
 
 ## ファイル構成
 
