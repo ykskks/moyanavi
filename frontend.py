@@ -13,10 +13,26 @@ from mypy_boto3_bedrock_agent_runtime.type_defs import (
 )
 from streamlit.delta_generator import DeltaGenerator
 
+dotenv.load_dotenv(override=True)
+
 
 def initialize_session() -> tuple[str, AgentsforBedrockRuntimeClient]:
+    region = os.getenv("REGION")
+    assert region is not None
+
+    access_key_id = os.getenv("ACCESS_KEY_ID")
+    assert access_key_id is not None
+
+    secret_access_key = os.getenv("SECRET_ACCESS_KEY")
+    assert secret_access_key is not None
+
     session_id = str(uuid.uuid4())
-    client = boto3.client("bedrock-agent-runtime")
+    client = boto3.client(
+        "bedrock-agent-runtime",
+        region_name=region,
+        aws_access_key_id=access_key_id,
+        aws_secret_access_key=secret_access_key,
+    )
     return session_id, client
 
 
@@ -54,8 +70,6 @@ def invoke_bedrock_agent(
     input_text: str,
     enable_trace: bool = True,
 ) -> InvokeAgentResponseTypeDef:
-    dotenv.load_dotenv(override=True)
-
     agent_id = os.getenv("AGENT_ID")
     agent_alias_id = os.getenv("AGENT_ALIAS_ID")
 
